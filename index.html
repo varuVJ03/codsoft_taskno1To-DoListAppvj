@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Attendance System</title>
+    <style>
+        body {
+            background-color: #f0f0f0; /* Light Gray */
+            color: #333; /* Dark Gray */
+            font-family: Georgia, cooper black;
+        }
+        
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+            color: dodgerblue; /* Blue */
+        }
+        
+        #loginForm, #dashboard {
+            margin: 0 auto;
+            width: 300px;
+            padding: 20px;
+            background-color: #fff; /* White */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        #dashboard {
+            display: none;
+        }
+        
+        .btn {
+            background-color: dodgerblue; /* Blue */
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the VJ'S University Attendance App</h1>
+    
+    <div id="loginForm">
+        <label for="email">Email:</label>
+        <input type="email" id="email">
+        <br><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password">
+        <br><br>
+        <button class="btn" onclick="login()">Login</button>
+    </div>
+    
+    <div id="dashboard">
+        <h2>Welcome, <span id="username"></span>!</h2>
+        <label for="attendance">Attendance:</label>
+        <input type="text" id="attendance">
+        <br><br>
+        <button class="btn" onclick="markAttendance()">Submit</button>
+    </div>
+
+    <script>
+        function login() {
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+
+            // Validate the email and password...
+
+            // If the validation is successful, show the dashboard
+            document.getElementById("loginForm").style.display = "none";
+            document.getElementById("dashboard").style.display = "block";
+            document.getElementById("username").innerHTML = email;
+
+            // Retrieve and display the courses
+            var courseList = document.getElementById("courseList");
+            courseList.innerHTML = "";
+
+            // Get the courses from the database and populate the list items...
+        }
+
+        function markAttendance() {
+            var attendance = document.getElementById("attendance").value;
+
+            // Save the attendance record to the database...
+
+            // Show success prompt
+            alert("Attendance marked successfully! 💐👍🎉");
+        }
+    </script>
+</body>
+</html>
